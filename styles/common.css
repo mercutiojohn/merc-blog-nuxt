@@ -1,10 +1,17 @@
 /* @import "styles/fonts.css"; */
 @import "static/fonts/inter/inter.css";
+@import "static/fonts/misans/misans.css";
+@import "static/fonts/prompt/prompt.css";
 /* @import "static/fonts/noto/noto.css"; */
-@import "https://fonts.font.im/css2?family=Noto+Sans+SC&display=swap";
+/* @import "https://fonts.font.im/css2?family=Noto+Sans+SC&display=swap"; */
 
 :root {
-  --font-sans: Inter, "Noto Sans SC", -apple-system, "BlinkMacSystemFont",
+  --font-sans: Inter, MiSans, "Noto Sans SC", -apple-system, "BlinkMacSystemFont",
+    "San Francisco", "SF Pro Display", "PingFang SC", "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji", Helvetica, Arial, ui-sans-serif,
+    system-ui;
+  --font-header: Prompt, Inter, MiSans, "Noto Sans SC", -apple-system, "BlinkMacSystemFont",
     "San Francisco", "SF Pro Display", "PingFang SC", "Segoe UI", "Roboto",
     "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji", Helvetica, Arial, ui-sans-serif,
@@ -20,35 +27,17 @@ body {
   font-family: var(--font-sans);
 }
 
+.font-header {
+  font-family: var(--font-header);
+}
+
 .page-content {
-  --padding: 100px;
-  /* width: calc(100% - var(--side-width)); */
-  width: calc(100% - var(--padding) * 2);
-  max-width: 1200px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
   flex-shrink: 0;
   /* min-height: calc(100vh - var(--head-height)); */
   box-sizing: border-box;
   margin: 20px 0;
   /* margin-left: var(--side-width); */
-}
-
-@media screen and (min-width: 1200px) {
-  .page-content {
-    --padding: var((100vw - 1200px) / 2);
-  }
-}
-@media screen and (min-width: 700px) and (max-width: 1200px) {
-  .page-content {
-    --padding: 50px;
-  }
-}
-@media screen and (max-width: 700px) {
-  .page-content {
-    --padding: 40px;
-  }
-}
-@media screen and (max-width: 600px) {
-  .page-content {
-    --padding: 30px;
-  }
 }
