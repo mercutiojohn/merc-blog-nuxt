@@ -16,6 +16,7 @@
     "@nuxtjs/router": "^1.7.0",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@unocss/nuxt": "^0.51.8",
+    "crypto": "^1.0.1",
     "gitalk": "^1.8.0",
     "less": "^3.5.0",
     "less-loader": "^7.3.0",
