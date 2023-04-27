@@ -24,7 +24,10 @@ export default {
    ** Nuxt.js modules
    ** Doc: https://modules.nuxtjs.org
    */
-  modules: ["@nuxtjs/axios",'@unocss/nuxt'],
+  modules: [
+    "@nuxtjs/axios"
+    // "@unocss/nuxt"
+  ],
 
   /*
    ** Global CSS

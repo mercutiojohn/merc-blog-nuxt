@@ -1,6 +1,6 @@
-# codesandbox-nuxt
+# merc-blog-nuxt
 
-> Nuxt starter for CodeSandBox (used for https://template.nuxtjs.org)
+> Using Nuxt starter for CodeSandBox (used for https://template.nuxtjs.org)
 
 ## Build Setup
 
