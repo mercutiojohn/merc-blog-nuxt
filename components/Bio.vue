@@ -20,7 +20,7 @@ export default {
     width: 100%;
   }
 }
-::v-deep.content.test > section > div > div > p {
+::v-deep.content.bio-content > section > div > div > p {
   margin: 3px 0;
 }
 </style>

@@ -5,8 +5,8 @@
   <loading-tip v-else />
 </template>
 <script>
-import VueNotionRender from "vue-notion-render"
-import LoadingTip from "@/components/utils/LoadingTip"
+import VueNotionRender from "vue-notion-render";
+import LoadingTip from "@/components/utils/LoadingTip";
 export default {
   name: "DynamicContent",
   components: { LoadingTip, VueNotionRender },
