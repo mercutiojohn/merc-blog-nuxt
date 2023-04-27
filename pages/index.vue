@@ -3,9 +3,9 @@
     <div class="home page-content">
       <!-- {{ pageData }} -->
       {{ ip }}
-      <Block>
+      <!-- <Block>
         <Avatar :email="email" />
-      </Block>
+      </Block> -->
       <Block>
         <Intro :name="name" :nickname="nickname" />
       </Block>

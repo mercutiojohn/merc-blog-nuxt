@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import crypto from "crypto";
+// import crypto from "crypto";
 export default {
   name: "Avatar",
   components: {
