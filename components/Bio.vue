@@ -1,23 +1,23 @@
 <template>
-  <DynamicContent :pageId="pageId" class="test"/>
+  <DynamicContent :pageId="pageId" class="test" />
 </template>
 <script>
-import DynamicContent from '@/components/widgets/DynamicContent'
+import DynamicContent from "@/components/utils/DynamicContent";
 export default {
   name: "Bio",
-  components: {DynamicContent},
+  components: { DynamicContent },
   props: {
     pageId: String
-  },
+  }
 };
 </script>
 <style scoped>
 @media screen and (max-width: 700px) {
-  .test{
+  .test {
     width: 100%;
   }
 }
-::v-deep.content.test > section > div > div > p{
+::v-deep.content.test > section > div > div > p {
   margin: 3px 0;
 }
 </style>

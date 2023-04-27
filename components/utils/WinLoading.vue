@@ -12,28 +12,14 @@
 
 <script>
 export default {
-  name: "",
-  components: {},
-  data() {
-    return {};
-  },
-  computed: {},
-  watch: {},
-  methods: {},
-  created() {},
-  mounted() {},
-  beforeDestroy() {},
+  name: "WinLoading"
 };
 </script>
 
 <style lang="less" scoped>
 .loader {
-  //   position: relative;
-  //   padding-top: 100px;
   width: 38px;
   height: 38px;
-  // width: 40px;
-  //   margin: auto;
 
   .circle {
     position: absolute;
