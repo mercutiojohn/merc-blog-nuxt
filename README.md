@@ -19,6 +19,9 @@ $ yarn start
 $ yarn run generate
 ```
 
+```
+    "crypto": "^1.0.1",
+```
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
 ## Special Directories
