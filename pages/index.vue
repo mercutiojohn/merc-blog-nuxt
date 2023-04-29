@@ -52,8 +52,8 @@ export default {
       const error = e;
       return {
         bioContent: {},
-        // workContent,
-        // contactsContent
+        workContent: {},
+        contactsContent: {},
         // ip
         error
       };
