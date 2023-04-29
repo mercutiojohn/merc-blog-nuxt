@@ -23,4 +23,12 @@ export default {
 ::v-deep.content.bio-content > section > div > div > p {
   margin: 3px 0;
 }
+::v-deep.content.bio-content details {
+  transition: all .2s ease;
+}
+
+::v-deep.content.bio-content details > div {
+  margin: 8px 0 8px 10px;
+  transition: all .2s ease;
+} 
 </style>

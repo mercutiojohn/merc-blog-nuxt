@@ -53,7 +53,7 @@ export default {
       return {
         bioContent: {},
         workContent: {},
-        contactsContent: {},
+        contactsContent: [],
         // ip
         error
       };
