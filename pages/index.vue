@@ -1,9 +1,6 @@
 <template>
   <div id="main-box" class="font-sans">
     <div class="home page-content">
-      <!-- {{ pageData }} -->
-      <span>error: {{ error }}</span>
-      <span>bio: {{ bioContent }}</span>
       <!-- <Block>
         <Avatar :email="email" />
       </Block> -->
@@ -11,10 +8,12 @@
         <Intro :name="name" :nickname="nickname" />
       </Block>
       <Block>
-        <Contacts :tableId="contactsContentId" />
+        <!-- {{contactsContent}} -->
+        <ContactsStatic :contactsData="contactsContent" />
       </Block>
       <Block>
-        <Bio :pageId="bioContentId" />
+        <!-- <Bio :pageId="bioContentId" /> -->
+        <BioStatic :content="bioContent" />
       </Block>
     </div>
   </div>
@@ -23,7 +22,7 @@
 <script>
 import Block from "@/components/utils/Block";
 export default {
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, $notionApi }) {
     const env = {
       name: "Mercutio John",
       nickname: "Mercutio",
@@ -35,29 +34,24 @@ export default {
     try {
       // console.log(`https://blogapi.mercutio.club/v1/page/${env.bioContentId}`);
 
-      const bioContent = await $axios.$get(
-        `https://blogapi.mercutio.club/v1/page/${env.bioContentId}`
-      );
-
-      // const bioContent = await $notionApi.$get(`/page/${env.bioContentId}`);
-      // const workContent = await $axios.$get(
+      // const bioContent = await $axios.$get(
       //   `https://blogapi.mercutio.club/v1/page/${env.bioContentId}`
       // );
-      // const contactsContent = await $axios.$get(
-      //   `https://blogapi.mercutio.club/v1/page/${env.contactsContentId}`
-      // );
+
+      const bioContent = await $notionApi.$get(`/page/${env.bioContentId}`);
+      const workContent = await $notionApi.$get(`/page/${env.workContentId}`);
+      const contactsContent = await $notionApi.$get(`/table/${env.contactsContentId}`);
       // const ip = await $axios.$get("http://icanhazip.com");
-      // console.log(bioContent);
       return {
-        bioContent
-        // workContent,
-        // contactsContent
+        bioContent,
+        workContent,
+        contactsContent
         // ip
       };
     } catch (e) {
       const error = e;
       return {
-        bioContent: null,
+        bioContent: {},
         // workContent,
         // contactsContent
         // ip

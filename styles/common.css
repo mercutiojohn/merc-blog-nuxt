@@ -1,43 +1,41 @@
 /* @import "styles/fonts.css"; */
+
 @import "static/fonts/inter/inter.css";
 @import "static/fonts/misans/misans.css";
 @import "static/fonts/prompt/prompt.css";
+
 /* @import "static/fonts/noto/noto.css"; */
+
+
 /* @import "https://fonts.font.im/css2?family=Noto+Sans+SC&display=swap"; */
 
 :root {
-  --font-sans: Inter, MiSans, "Noto Sans SC", -apple-system, "BlinkMacSystemFont",
-    "San Francisco", "SF Pro Display", "PingFang SC", "Segoe UI", "Roboto",
-    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji", Helvetica, Arial, ui-sans-serif,
-    system-ui;
-  --font-header: Prompt, Inter, MiSans, "Noto Sans SC", -apple-system, "BlinkMacSystemFont",
-    "San Francisco", "SF Pro Display", "PingFang SC", "Segoe UI", "Roboto",
-    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji", Helvetica, Arial, ui-sans-serif,
-    system-ui;
+    --font-sans: Inter, -apple-system, "BlinkMacSystemFont", "San Francisco", "SF Pro Display", "PingFang SC", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Sans SC", MiSans, "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", Helvetica, Arial, ui-sans-serif, system-ui;
+    --font-header: Prompt, -apple-system, "BlinkMacSystemFont", "San Francisco", "SF Pro Display", Inter, MiSans, "PingFang SC", "Noto Sans SC", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Helvetica, Arial, ui-sans-serif, system-ui;
 }
+
 body {
-  margin: 0;
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 .font-sans {
-  font-family: var(--font-sans);
+    font-family: var(--font-sans);
 }
 
 .font-header {
-  font-family: var(--font-header);
+    font-family: var(--font-header);
 }
 
 .page-content {
-  width: 100%;
-  max-width: 800px;
-  padding: 0 20px;
-  flex-shrink: 0;
-  /* min-height: calc(100vh - var(--head-height)); */
-  box-sizing: border-box;
-  margin: 20px 0;
-  /* margin-left: var(--side-width); */
+    width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+    flex-shrink: 0;
+    /* min-height: calc(100vh - var(--head-height)); */
+    box-sizing: border-box;
+    margin: 20px 0;
+    /* margin-left: var(--side-width); */
 }
