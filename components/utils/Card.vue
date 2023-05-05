@@ -37,7 +37,7 @@ beforeDestroy(){}
 
 <style scoped>
 .card {
-  padding: 20px;
+  /* padding: 20px; */
   box-sizing: border-box;
   background: #fff;
   border-radius: 10px;
