@@ -1,9 +1,9 @@
-<template>
+<templat>
   <div id="main-box" class="font-sans">
     <div class="home page-content">
-      <!-- <Block>
-        <Avatar :email="email" />
-      </Block> -->
+      <Block>
+        <AvatarStatic :status="status" :rounded="true"/>
+      </Block>
       <Block>
         <Intro :name="name" :nickname="nickname" />
       </Block>
@@ -21,6 +21,10 @@
       <div class="page-content">
         <Block title="Works">
           <WorksStatic :content="workContent" />
+        </Block>
+        <Block title="More">
+          <NuxtLink class="hover-link" to="/bangumis">番剧收藏</NuxtLink>
+          <NuxtLink class="hover-link" to="/albums">专辑收藏</NuxtLink>
         </Block>
       </div>
     </div>
@@ -40,23 +44,15 @@ export default {
       contactsContentId: "12729fd0de5c49c4b3763e52159f137c",
     };
     try {
-      // console.log(`https://blogapi.mercutio.club/v1/page/${env.bioContentId}`);
-
-      // const bioContent = await $axios.$get(
-      //   `https://blogapi.mercutio.club/v1/page/${env.bioContentId}`
-      // );
-
       const bioContent = await $notionApi.$get(`/page/${env.bioContentId}`);
       const workContent = await $notionApi.$get(`/table/${env.workContentId}`);
       const contactsContent = await $notionApi.$get(
         `/table/${env.contactsContentId}`
       );
-      // const ip = await $axios.$get("http://icanhazip.com");
       return {
         bioContent,
         workContent,
-        contactsContent,
-        // ip
+        contactsContent
       };
     } catch (e) {
       const error = e;
@@ -74,12 +70,13 @@ export default {
   },
   data() {
     return {
-      name: "Mercutio John",
+      name: "Jonathan Gow",
       nickname: "Mercutio",
       email: "mercutio_john@foxmail.com",
       bioContentId: "0925ed7470944566b0dc74966fa62797",
       workContentId: "44b1fa02e42b4e7ab03c6203b9b862de",
       contactsContentId: "12729fd0de5c49c4b3763e52159f137c",
+      status:"working"
     };
   },
 };
