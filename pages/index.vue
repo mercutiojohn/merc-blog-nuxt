@@ -1,4 +1,4 @@
-<templat>
+<template>
   <div id="main-box" class="font-sans">
     <div class="home page-content">
       <Block>
