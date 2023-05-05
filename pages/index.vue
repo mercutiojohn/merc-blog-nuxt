@@ -25,6 +25,7 @@
         <Block title="More">
           <NuxtLink class="hover-link" to="/bangumis">番剧收藏</NuxtLink>
           <NuxtLink class="hover-link" to="/albums">专辑收藏</NuxtLink>
+          <a class="hover-link" href="https://blog.mercutio.club">博客</a>
         </Block>
       </div>
     </div>
