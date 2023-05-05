@@ -29,6 +29,13 @@ body {
     font-family: var(--font-header);
 }
 
+#main-box {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: column;
+}
+
 .page-content {
     width: 100%;
     max-width: 1200px;

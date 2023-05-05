@@ -29,8 +29,15 @@ export default {
 </script>
 
 <style scoped>
-.avatar {
+.avatar-box {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
+}
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
-  <div class="bangumis common-page">
+<div id="main-box" class="font-sans">
+  <div class="bangumis page-content">
     <span class="header"><h1 class="title">番剧收藏</h1></span>
     <div class="bangumis-list" v-if="!loading">
       <div
@@ -24,12 +25,12 @@
           <span class="time">
             {{ item["档期"][0] }} - {{ item["档期"][1] }}
           </span>
-          <span class="type">
+          <!-- <span class="type">
             {{ item["类型"]}}
-          </span>
+          </span> -->
           <div class="links">
             <a
-              class="link"
+              class="hover-link"
               :style="
                 'color:' + getColor(item) + ';border-color:' + getColor(item)
               "
@@ -39,7 +40,7 @@
               嗶哩嗶哩
             </a>
             <a
-              class="link"
+              class="hover-link"
               :style="
                 'color:' + getColor(item) + ';border-color:' + getColor(item)
               "
@@ -48,7 +49,7 @@
               >哔哩哔哩
             </a>
             <a
-              class="link"
+              class="hover-link"
               :style="
                 'color:' + getColor(item) + ';border-color:' + getColor(item)
               "
@@ -57,7 +58,7 @@
               >AcFun</a
             >
             <a
-              class="link"
+              class="hover-link"
               :style="
                 'color:' + getColor(item) + ';border-color:' + getColor(item)
               "
@@ -67,7 +68,7 @@
               萌娘百科
             </a>
             <a
-              class="link"
+              class="hover-link"
               :style="
                 'color:' + getColor(item) + ';border-color:' + getColor(item)
               "
@@ -91,6 +92,7 @@
       </div>
     </div>
     <loading-tip v-else />
+  </div>
   </div>
 </template>
 
@@ -250,20 +252,19 @@ export default {
 <style scoped>
 .bangumis-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
   gap: 10px;
 }
 .bangumi-item {
-  border-radius: 30px;
+  border-radius: 20px;
   height: 260px;
-  margin-top: 150px;
+  margin-top: 210px;
   display: flex;
   justify-content: space-between;
-  background: var(--sub-card-color);
 }
 .bangumi-item .left {
   height: 100%;
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -277,9 +278,10 @@ export default {
 
 .main-view {
   position: relative;
-  bottom: 150px;
-  width: 270px;
-  height: calc(100% + 150px);
+  bottom: 210px;
+  min-width: 320px;
+  max-width: 350px;
+  height: calc(100% + 210px);
   display: flex;
   align-items: flex-end;
   /* background: #000; */
@@ -301,12 +303,9 @@ export default {
 .links {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
 }
-.links .link {
-  font-size: 0.7em;
-  border: 1px solid var(--content-color);
-  border-radius: var(--item-radius);
-  padding: 8px 6px;
-  color: var(--content-color);
+.links .hover-link {
+  flex-shrink: 0;
 }
 </style>

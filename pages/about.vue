@@ -1,31 +1,32 @@
 <template>
-  <div class="about common-page">
-    <h1 class="title">关于我</h1>
-    <!-- <div v-for="(item,index) in text" :key="index">
+  <div id="main-box" class="font-sans">
+    <div class="about page-content">
+      <h1 class="title">关于我</h1>
+      <!-- <div v-for="(item,index) in text" :key="index">
       <span class="title">{{item}}</span>
     </div> -->
-    <div class="content">
-      <StaticContent :pageData="aboutContent" class="bio-content" />
+      <div class="content">
+        <StaticContent :pageData="aboutContent" class="bio-content" />
+      </div>
+      <!-- <Block title="相册">
+        <Gallery :tableId="workContentId" style="width:100%" />
+      </Block>
+      <Block title="最近在看的书">
+        <Gallery :tableId="workContentId" style="width:100%" />
+      </Block>
+      <Block title="最近在听的音乐">
+        <Gallery :tableId="workContentId" style="width:100%" />
+      </Block>
+      <Block title="最近在看的影视作品">
+        <Gallery :tableId="workContentId" style="width:100%" />
+      </Block>
+      <Block title="最近关注的产品">
+        <Gallery :tableId="workContentId" style="width:100%" />
+      </Block>
+      <Block title="碎碎念">
+        <Gallery :tableId="workContentId" style="width:100%" />
+      </Block> -->
     </div>
-    <!-- <Block title="相册">
-      <Gallery :tableId="workContentId" style="width:100%" />
-    </Block>
-    <Block title="最近在看的书">
-      <Gallery :tableId="workContentId" style="width:100%" />
-    </Block>
-    <Block title="最近在听的音乐">
-      <Gallery :tableId="workContentId" style="width:100%" />
-    </Block>
-    <Block title="最近在看的影视作品">
-      <Gallery :tableId="workContentId" style="width:100%" />
-    </Block>
-    <Block title="最近关注的产品">
-      <Gallery :tableId="workContentId" style="width:100%" />
-    </Block>
-    <Block title="碎碎念">
-      <Gallery :tableId="workContentId" style="width:100%" />
-    </Block> -->
-    <NuxtLink to="/bangumi">番剧收藏</NuxtLink>
   </div>
 </template>
 <script>
@@ -41,13 +42,13 @@ export default {
     try {
       const aboutContent = await $notionApi.$get(`/page/${env.aboutContentId}`);
       return {
-        aboutContent
+        aboutContent,
       };
     } catch (e) {
       const error = e;
       return {
         aboutContent: {},
-        error
+        error,
       };
     }
   },
@@ -55,12 +56,12 @@ export default {
   components: {
     // Gallery,
     Block,
-    StaticContent
+    StaticContent,
   },
 };
 </script>
 <style scoped>
-.content{
-  max-width:900px;
+.content {
+  max-width: 900px;
 }
 </style>
