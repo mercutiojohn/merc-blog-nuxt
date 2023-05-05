@@ -3,9 +3,10 @@
     <div class="list-box">
       <a
         v-for="(contactItem, contactIdx) in contactsData"
+        v-if="contactItem.show"
         :key="contactIdx"
         :href="contactItem.url + contactItem.uid"
-        :class="{'contact-item ef-fadein': true, 'in-box': inBox[contactIdx]}"
+        :class="{'contact-item hover-link ef-fadein': true, 'in-box': inBox[contactIdx]}"
         target="_blank"
         @mouseover="changeStat(contactIdx, true)"
         @mouseout="changeStat(contactIdx, false)"
@@ -89,6 +90,15 @@ export default {
   padding-left: 0;
   border-radius: 7px;
   transition: all .2s ease;
+  text-decoration: none;
+  color: unset;
+  transform: none;
+}
+.contact-item::after {
+  display: none;
+}
+.contact-item.in-box::after {
+  display: unset;
 }
 .contact-item.in-box {
   /* padding: 6px 8px; */

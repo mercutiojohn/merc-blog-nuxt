@@ -1,10 +1,10 @@
 <template>
   <div class="my-contacts">
     <div class="list-box" v-if="!loading">
-      <a
+      <NuxtLink
         v-for="(contactItem, contactIdx) in contactsData"
         :key="contactIdx"
-        :href="contactItem.url + contactItem.uid"
+        :to="contactItem.url + contactItem.uid"
         :class="{'contact-item ef-fadein': true, 'in-box': inBox[contactIdx]}"
         target="_blank"
         @mouseover="changeStat(contactIdx, true)"
@@ -27,7 +27,7 @@
           srcset=""
           class="contact-badge"
         />
-      </a>
+      </NuxtLink>
     </div>
     <loading-tip v-else />
   </div>
@@ -110,6 +110,8 @@ export default {
   padding-left: 0;
   border-radius: 7px;
   transition: all .2s ease;
+  text-decoration: none;
+  color: unset;
 }
 .contact-item.in-box {
   /* padding: 6px 8px; */
