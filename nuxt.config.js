@@ -10,8 +10,8 @@ export default {
             { name: "viewport", content: "width=device-width, initial-scale=1" },
             {
                 hid: "description",
-                name: "description",
-                content: "Official Nuxt.js starter for CodeSandBox"
+                name: "Mercutio John",
+                content: "Personal Website of Mercutio John"
             }
         ],
         link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
@@ -26,6 +26,7 @@ export default {
      */
     modules: [
         "@nuxtjs/axios",
+        '@nuxt/devtools',
         // "@unocss/nuxt"
     ],
 
@@ -35,7 +36,9 @@ export default {
      ** Global CSS
      ** Doc: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-css
      */
-    css: [],
+    css: [
+        '@/styles/common.css'
+    ],
 
     /*
      ** Plugins to load before mounting the App
@@ -44,7 +47,7 @@ export default {
     plugins: ["~/plugins/axios", "~/plugins/api"],
 
     router: {
-        middleware: ['nocache'],
+        // middleware: ['nocache'],
     },
     // plugin configs
     svg: {

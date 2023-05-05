@@ -31,11 +31,35 @@ body {
 
 .page-content {
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
     padding: 0 20px;
     flex-shrink: 0;
     /* min-height: calc(100vh - var(--head-height)); */
     box-sizing: border-box;
     margin: 20px 0;
     /* margin-left: var(--side-width); */
+}
+
+a.hover-link {
+    padding: 5px 10px;
+    transform: translate(-10px);
+    text-decoration: none;
+    color: unset;
+    border-radius: 5px;
+    transition: background .2s;
+}
+
+a.hover-link:hover {
+    background: #00000022;
+}
+
+a.hover-link:active {
+    background: #00000042;
+}
+
+a.hover-link::after {
+    content: '↗️';
+    display: inline-block;
+    transform: translateY(2px);
+    margin-left: 3px;
 }

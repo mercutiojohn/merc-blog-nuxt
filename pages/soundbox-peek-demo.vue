@@ -3,17 +3,17 @@
     <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="loaded = !loaded">Toggle</button> -->
     <transition name="fade-charming">
         <div class="device" ref="device" v-show="loaded">
-          <XiaoaiBack class="device-component back" />
-          <XiaoaiFront class="device-component front" />
+          <SoundboxPeekBack class="device-component back" />
+          <SoundboxPeekFront class="device-component front" />
           <iframe
             @load="onIframeLoad"
             ref="myIframe"
             class="device-component screen"
-            src="http://localhost:3000"
+            :src="screenUrl"
             frameborder="0"
           ></iframe>
           <transition name="fade">
-            <div v-if="!screenShow" class="device-component screenLoading">123</div>
+            <div v-if="!screenShow" class="device-component screenLoading">Loading</div>
           </transition>
         </div>
     </transition>
@@ -21,12 +21,12 @@
 </template>
 
 <script>
-import XiaoaiBack from "~/assets/sprite/svg/xiaoai-back.svg?inline";
-import XiaoaiFront from "~/assets/sprite/svg/xiaoai-front.svg?inline";
+import SoundboxPeekBack from "~/assets/sprite/svg/soundbox-back.svg?inline";
+import SoundboxPeekFront from "~/assets/sprite/svg/soundbox-front.svg?inline";
 export default {
   components: {
-    XiaoaiBack,
-    XiaoaiFront,
+    SoundboxPeekBack,
+    SoundboxPeekFront,
   },
   mounted() {
     this.$nextTick(() => {
@@ -100,6 +100,7 @@ export default {
           ? clientW / (realSvgWidth + padding)
           : minScale;
       device.style.zoom = scale;
+      // device.style.transform = `scale(${scale})`;
     },
     onIframeLoad(){
       this.screenShow = true;
@@ -108,7 +109,8 @@ export default {
   data() {
     return {
         loaded: false,
-        screenShow: false
+        screenShow: false,
+        screenUrl: 'http://miaisb.mercutio.club'
     }
   }
 };
@@ -160,9 +162,9 @@ body {
     .device-component {
       position: absolute;
       &.screen {
-        width: 800px;
-        height: 450px;
-        transform: translate(109px, 97px);
+        width: 802px;
+        height: 452px;
+        transform: translate(108px, 96px);
       }
       &.screenLoading {
         width: 800px;
@@ -173,6 +175,7 @@ body {
         align-items: center;
         justify-content: center;
         color: #fff;
+        font-size: 28px;
       }
     }
   }
