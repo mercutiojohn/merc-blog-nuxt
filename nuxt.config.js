@@ -26,7 +26,6 @@ export default {
      */
     modules: [
         "@nuxtjs/axios",
-        '@nuxt/devtools',
         // "@unocss/nuxt"
     ],
 
