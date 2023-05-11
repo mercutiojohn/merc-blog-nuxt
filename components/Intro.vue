@@ -22,6 +22,6 @@ export default {
 .intro-text {
   font-size: 40px;
   font-weight: 800;
-  font-family: var(--font-sans);
+  font-family: var(--font-header);
 }
 </style>

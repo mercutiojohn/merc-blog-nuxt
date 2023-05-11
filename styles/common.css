@@ -3,6 +3,7 @@
 @import "static/fonts/inter/inter.css";
 @import "static/fonts/misans/misans.css";
 @import "static/fonts/prompt/prompt.css";
+@import "static/fonts/wix/wix.css";
 
 /* @import "static/fonts/noto/noto.css"; */
 
@@ -11,7 +12,7 @@
 
 :root {
     --font-sans: Inter, -apple-system, "BlinkMacSystemFont", "San Francisco", "SF Pro Display", "PingFang SC", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "Noto Sans SC", MiSans, "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", Helvetica, Arial, ui-sans-serif, system-ui;
-    --font-header: Prompt, -apple-system, "BlinkMacSystemFont", "San Francisco", "SF Pro Display", Inter, MiSans, "PingFang SC", "Noto Sans SC", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Helvetica, Arial, ui-sans-serif, system-ui;
+    --font-header: 'Wix Madefor Display', Prompt, -apple-system, "BlinkMacSystemFont", "San Francisco", "SF Pro Display", Inter, MiSans, "PingFang SC", "Noto Sans SC", "Segoe UI", "Roboto", "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", Helvetica, Arial, ui-sans-serif, system-ui;
 }
 
 body {

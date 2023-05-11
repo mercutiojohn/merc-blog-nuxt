@@ -84,3 +84,5 @@ assets/.DS_Store
 .gitignore
 assets/sprite/.DS_Store
 .DS_Store
+.lh/
+.vscode/
