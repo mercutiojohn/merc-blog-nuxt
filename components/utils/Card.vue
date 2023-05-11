@@ -40,7 +40,7 @@ mounted(){
     scrollTrigger: {
       trigger: cardEffect,
       scrub: 1,
-      markers: true,
+      // markers: true,
       start: "top 98%", // 动画开始位置
       end: "top 90%", // 动画结束位置
       toggleActions: "play none none reverse" // 动画结束时反转
