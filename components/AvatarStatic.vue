@@ -26,13 +26,13 @@ export default {
     changeColor() {
       const randomIndex = Math.floor(Math.random() * this.colorPalette.length); // 随机选择一种颜色
       const randomColor = this.colorPalette[randomIndex];
-      this.$refs.avatarBox.style.backgroundImage = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
+      this.$refs.avatarBox.style.background = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
     }
   },
   mounted(){
     const randomIndex = Math.floor(Math.random() * this.colorPalette.length); // 随机选择一种颜色
     const randomColor = this.colorPalette[randomIndex];
-    this.$refs.avatarBox.style.backgroundImage = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
+    this.$refs.avatarBox.style.background = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
 
     gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
     const avatarBox = this.$refs.avatarBox;
@@ -85,9 +85,9 @@ export default {
           from:'#b5e1ba',
           to:'#a8dead'
         },{
-          from:'#f0b8c6',
-          to:'#edafbd'
-        },{
+        //   from:'#f0b8c6',
+        //   to:'#edafbd'
+        // },{
           from:'#ebaba8',
           to:'#e99d98'
         },{
@@ -106,18 +106,17 @@ export default {
   height: 160px;
   overflow: hidden;
   border-radius: 5px;
-  transition: background .2s ease, transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   user-select: none;
-  background: #e0e0e0;
+  background: linear-gradient('#efc897','#ecc189');
 }
 .avatar-box:hover,
 .avatar-box:focus {
-  transform: scale(1.03);
+  transform: scale(1.03) !important;
+  transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .avatar-box:active {
-  transform: scale(.98);
-  background: #e0e0e0!important;
+  transform: scale(0.98) !important;
 }
 .avatar-box.rounded {
   border-radius: 50%;

@@ -29,21 +29,36 @@ export default {
   mounted(){
     gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
     const titleEffect = this.$refs.titleEffect;
-    const tl = gsap.timeline({
+    const fl = gsap.timeline({
       scrollTrigger: {
         trigger: titleEffect,
         scrub: .8,
         // markers: true,
-        start: "top 10%", // 动画开始位置
-        end: "top 4%", // 动画结束位置
+        start: "top 90%", // 动画开始位置
+        end: "top 90%", // 动画结束位置
         toggleActions: "play none none reverse" // 动画结束时反转
       }
     });
-    tl.to(titleEffect, { 
+    fl.from(titleEffect, { 
       opacity: 0, 
       duration: 0.5,
       transform: "scale(.8) translateY(20px)"
      });
+    // const tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: titleEffect,
+    //     scrub: .8,
+    //     // markers: true,
+    //     start: "top 10%", // 动画开始位置
+    //     end: "top 4%", // 动画结束位置
+    //     toggleActions: "play none none reverse" // 动画结束时反转
+    //   }
+    // });
+    // tl.to(titleEffect, { 
+    //   opacity: 0, 
+    //   duration: 0.5,
+    //   transform: "scale(.8) translateY(20px)"
+    //  });
   }
 };
 </script>
