@@ -5,12 +5,15 @@
       horScroll ? 'overflow-x:scroll;' : '' + title ? 'margin:0 0 10px;' : ''
     "
   >
-    <h2 v-if="title">{{ title }}</h2>
+    <h2 v-if="title" ref="titleEffect">{{ title }}</h2>
     <slot></slot>
   </div>
 </template>
 
 <script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default {
   name: "Block",
   props: {
@@ -22,6 +25,25 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  mounted(){
+    gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
+    const titleEffect = this.$refs.titleEffect;
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: titleEffect,
+        scrub: .8,
+        // markers: true,
+        start: "top 10%", // 动画开始位置
+        end: "top 4%", // 动画结束位置
+        toggleActions: "play none none reverse" // 动画结束时反转
+      }
+    });
+    tl.to(titleEffect, { 
+      opacity: 0, 
+      duration: 0.5,
+      transform: "scale(.8) translateY(20px)"
+     });
   }
 };
 </script>

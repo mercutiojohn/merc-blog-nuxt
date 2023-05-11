@@ -1,10 +1,13 @@
 <template>
-  <div :class="{'avatar-box': true, 'rounded': rounded}" ref="avatarBox">
-    <img class="avatar" :src="imgUrl" alt="" srcset="" />
+  <div :class="{'avatar-box': true, 'rounded': rounded}" ref="avatarBox" @click="changeColor">
+    <img class="avatar" ref="avatarImgEffect" :src="imgUrl" alt="" srcset="" />
   </div>
 </template>
 
 <script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default {
   name: "AvatarStatic",
   props: {
@@ -19,8 +22,51 @@ export default {
       return `images/avatar_${this.status}.png`;
     }
   },
+  methods: {
+    changeColor() {
+      const randomIndex = Math.floor(Math.random() * this.colorPalette.length); // 随机选择一种颜色
+      const randomColor = this.colorPalette[randomIndex];
+      this.$refs.avatarBox.style.backgroundImage = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
+    }
+  },
   mounted(){
-    this.$refs.avatarBox.style.background = `linear-gradient(${this.colorPalette[0].from},${this.colorPalette[0].to})`;
+    const randomIndex = Math.floor(Math.random() * this.colorPalette.length); // 随机选择一种颜色
+    const randomColor = this.colorPalette[randomIndex];
+    this.$refs.avatarBox.style.backgroundImage = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
+
+    gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
+    const avatarBox = this.$refs.avatarBox;
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: avatarBox,
+        scrub: .8,
+        // markers: true,
+        start: "top 2%", // 动画开始位置
+        end: "top 0%", // 动画结束位置
+        toggleActions: "play none none reverse" // 动画结束时反转
+      }
+    });
+    tl.to(avatarBox, { 
+      opacity: 0, 
+      duration: 0.5,
+      transform: "scale(.8) translateY(40px)"
+    });
+
+    const avatarImgEffect = this.$refs.avatarImgEffect;
+    const el = gsap.timeline({
+      scrollTrigger: {
+        trigger: avatarImgEffect,
+        scrub: 1.3,
+        // markers: true,
+        start: "top 2%", // 动画开始位置
+        end: "top 0%", // 动画结束位置
+        toggleActions: "play none none reverse" // 动画结束时反转
+      }
+    });
+    el.to(avatarImgEffect, { 
+      duration: 0.5,
+      transform: "translateY(80px)"
+    });
   },
   data(){
     return {
@@ -60,7 +106,18 @@ export default {
   height: 160px;
   overflow: hidden;
   border-radius: 5px;
-  transition: background .2s ease;
+  transition: background .2s ease, transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  user-select: none;
+  background: #e0e0e0;
+}
+.avatar-box:hover,
+.avatar-box:focus {
+  transform: scale(1.03);
+}
+.avatar-box:active {
+  transform: scale(.98);
+  background: #e0e0e0!important;
 }
 .avatar-box.rounded {
   border-radius: 50%;

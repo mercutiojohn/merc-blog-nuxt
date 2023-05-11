@@ -1,5 +1,5 @@
 <template>
-<div :class="{
+<div ref="cardEffect" :class="{
     'card': true,
     'card-no-bg': cardNoBg
   }">
@@ -8,6 +8,9 @@
 </template>
 
 <script>
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 export default {
 name: "GridLayoutCard",
 components: {},
@@ -30,7 +33,25 @@ computed: {},
 watch: {},
 methods: {},
 created(){},
-mounted(){},
+mounted(){
+  // gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
+  // const cardEffect = this.$refs.cardEffect;
+  // const tl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: cardEffect,
+  //     scrub: 1,
+  //     markers: true,
+  //     start: "top -300px", // 动画开始位置
+  //     end: "top -500px", // 动画结束位置
+  //     toggleActions: "play none none reverse" // 动画结束时反转
+  //   }
+  // });
+  // tl.to(cardEffect, { 
+  //   opacity: .4, 
+  //   duration: 0.5,
+  //   transform: "scale(.95) translateY(100px)",
+  //   });
+},
 beforeDestroy(){}
 };
 </script>
