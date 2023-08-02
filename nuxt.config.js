@@ -49,6 +49,14 @@ export default {
 
     buildModules: ["@nuxtjs/svg"],
 
+    /* 
+        If you get an Cannot use import statement outside a module error, you may need to add your package to the build > transpile option in nuxt.config.js for webpack loader to make your plugin available.
+        https://stackoverflow.com/a/73187520
+    */
+    build: {
+        transpile: ['vue-agile']
+    },
+
     /*
      ** Global CSS
      ** Doc: https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-css

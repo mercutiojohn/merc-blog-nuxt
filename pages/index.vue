@@ -34,6 +34,7 @@
 
 <script>
 import Block from "@/components/utils/Block";
+
 export default {
   async asyncData({ $axios, $notionApi }) {
     const env = {
