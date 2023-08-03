@@ -2,7 +2,7 @@
   <div class="container">
     <div class="container">
       <GridLayout height="auto">
-        <NuxtLink class="no-deco" to="/bangumis">
+        <!-- <NuxtLink class="no-deco" to="/bangumis"> -->
           <Card plain class="custom-card">
             <div class="bg-box">
               <!-- <img src="" class="banner" alt="" srcset=""> -->
@@ -11,8 +11,8 @@
               <h2 class="title">Bangumis</h2>
             </div>
           </Card>
-        </NuxtLink>
-        <NuxtLink class="no-deco" to="/albums">
+        <!-- </NuxtLink> -->
+        <!-- <NuxtLink class="no-deco" to="/albums"> -->
           <Card plain class="custom-card">
             <div class="bg-box">
               <!-- <img src="" class="banner" alt="" srcset=""> -->
@@ -20,8 +20,8 @@
             <div class="card-content">
               <h2 class="title">Albums</h2>
             </div>
-          </Card></NuxtLink
-        >
+          </Card>
+          <!-- </NuxtLink> -->
         <a class="no-deco" href="https://blog.mercutio.club">
           <Card plain class="custom-card">
             <div class="bg-box">
