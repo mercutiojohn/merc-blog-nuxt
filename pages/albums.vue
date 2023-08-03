@@ -1,39 +1,43 @@
 <template>
-  <div id="albums">
-    <!-- <h1>Album Wall</h1>
+  <Page>
+    <div id="albums">
+      <!-- <h1>Album Wall</h1>
     <p>{{albumsContent}}</p> -->
-    <div class="wall">
+      <div class="wall">
         <Title title="Albums" />
         <AlbumWall :albums="albumsContent" />
+      </div>
     </div>
-  </div>
+  </Page>
 </template>
 
 <script>
-import Title from '@/components/utils/Title'
+import Page from "@/components/utils/Page";
+import Title from "@/components/utils/Title";
 export default {
   name: "Albums",
   components: {
-    Title
+    Title,
+    Page,
   },
   async asyncData({ $axios, $notionApi }) {
     const env = {
-      albumsListId: "455b9798107946da90a59216dd369146"
+      albumsListId: "455b9798107946da90a59216dd369146",
     };
     try {
       const albumsContent = await $notionApi.$get(`/table/${env.albumsListId}`);
       return {
-        albumsContent
+        albumsContent,
       };
     } catch (e) {
       const error = e;
       return {
         albumsContent: [],
         // ip
-        error
+        error,
       };
     }
-  }
+  },
 };
 </script>
 <style>
@@ -45,11 +49,11 @@ export default {
   flex-direction: column;
 }
 .wall {
-    padding: 30px 100px;
+  padding: 30px 100px;
 }
 @media screen and (max-width: 600px) {
-    .wall {
-        padding: 30px 10px;
-    }
+  .wall {
+    padding: 30px 10px;
+  }
 }
 </style>

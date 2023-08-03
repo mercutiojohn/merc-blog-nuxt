@@ -5,7 +5,7 @@
       horScroll ? 'overflow-x:scroll;' : '' + title ? 'margin:0 0 10px;' : ''
     "
   >
-    <h2 v-if="title">{{ title }}</h2>
+    <h2 class="font" v-if="title">{{ title }}</h2>
     <slot></slot>
   </div>
 </template>
@@ -34,5 +34,8 @@ export default {
   width: 100%;
   /* overflow: hidden; */
   margin: 10px 0;
+}
+.font {
+  font-family: var(--font-header);
 }
 </style>

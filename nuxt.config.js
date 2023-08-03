@@ -44,8 +44,15 @@ export default {
      */
     modules: [
         "@nuxtjs/axios",
-        // "@unocss/nuxt"
+        // "@unocss/nuxt",
+        "@nuxtjs/style-resources",
     ],
+
+    styleResources: {
+        scss: [
+            '@/assets/_var.scss'
+        ]
+    },
 
     buildModules: ["@nuxtjs/svg"],
 
