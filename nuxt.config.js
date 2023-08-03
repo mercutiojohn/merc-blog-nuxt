@@ -76,7 +76,7 @@ export default {
      ** Plugins to load before mounting the App
      ** Doc: https://nuxtjs.org/docs/2.x/directory-structure/plugins
      */
-    plugins: ["~/plugins/axios", "~/plugins/api"],
+    plugins: ["~/plugins/axios", "~/plugins/api", { src: '~/plugins/vercel.js', mode: 'client' }],
 
     router: {
         // middleware: ['nocache'],
