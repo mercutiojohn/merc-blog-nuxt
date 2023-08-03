@@ -3,7 +3,7 @@
     <div class="container">
       <GridLayout height="auto">
         <NuxtLink class="no-deco" to="/bangumis">
-          <Card plain solid class="custom-card">
+          <Card plain class="custom-card">
             <div class="bg-box">
               <!-- <img src="" class="banner" alt="" srcset=""> -->
             </div>
@@ -13,7 +13,7 @@
           </Card>
         </NuxtLink>
         <NuxtLink class="no-deco" to="/albums">
-          <Card plain solid class="custom-card">
+          <Card plain class="custom-card">
             <div class="bg-box">
               <!-- <img src="" class="banner" alt="" srcset=""> -->
             </div>
@@ -23,7 +23,7 @@
           </Card></NuxtLink
         >
         <a class="no-deco" href="https://blog.mercutio.club">
-          <Card plain solid class="custom-card">
+          <Card plain class="custom-card">
             <div class="bg-box">
               <!-- <img src="" class="banner" alt="" srcset=""> -->
             </div>
