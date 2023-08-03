@@ -42,7 +42,7 @@ import GridLayout from "@/components/utils/GridLayout";
 import Card from "@/components/utils/Card";
 
 export default {
-  name: "Contacts",
+  name: "Works",
   components: { Card, GridLayout },
   props: {
     content: Array,
@@ -71,7 +71,7 @@ export default {
   border-radius: 6px;
 }
 .title {
-  font-family: var(--font-sans);
+  font-family: var(--font-header);
     &.with-icon {
       font-size: 22px;
     }

@@ -1,12 +1,10 @@
 <template>
   <div :class="{'avatar-box': true, 'rounded': rounded}" ref="avatarBox" @click="changeColor">
-    <img class="avatar" ref="avatarImgEffect" :src="imgUrl" alt="" srcset="" />
+    <img :class="{'avatar': true, 'trans':!showAvatar}" ref="avatarImgEffect" :src="imgUrl" alt="" srcset="" />
   </div>
 </template>
 
 <script>
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
   name: "AvatarStatic",
@@ -30,46 +28,17 @@ export default {
     }
   },
   mounted(){
-    const randomIndex = Math.floor(Math.random() * this.colorPalette.length); // 随机选择一种颜色
-    const randomColor = this.colorPalette[randomIndex];
-    this.$refs.avatarBox.style.background = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
-
-    gsap.registerPlugin(ScrollTrigger); // 注册 ScrollTrigger 插件
-    const avatarBox = this.$refs.avatarBox;
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: avatarBox,
-        scrub: .8,
-        // markers: true,
-        start: "top 2%", // 动画开始位置
-        end: "top 0%", // 动画结束位置
-        toggleActions: "play none none reverse" // 动画结束时反转
-      }
-    });
-    tl.to(avatarBox, { 
-      opacity: 0, 
-      duration: 0.5,
-      transform: "scale(.8) translateY(40px)"
-    });
-
-    const avatarImgEffect = this.$refs.avatarImgEffect;
-    const el = gsap.timeline({
-      scrollTrigger: {
-        trigger: avatarImgEffect,
-        scrub: 1.3,
-        // markers: true,
-        start: "top 2%", // 动画开始位置
-        end: "top 0%", // 动画结束位置
-        toggleActions: "play none none reverse" // 动画结束时反转
-      }
-    });
-    el.to(avatarImgEffect, { 
-      duration: 0.5,
-      transform: "translateY(80px)"
-    });
+    // const randomIndex = Math.floor(Math.random() * this.colorPalette.length); // 随机选择一种颜色
+    // const randomColor = this.colorPalette[randomIndex];
+    // this.$refs.avatarBox.style.background = `linear-gradient(${randomColor.from},${randomColor.to})`; // 将颜色应用到组件的背景中
+    this.$refs.avatarBox.style.background = `linear-gradient(${this.colorPalette[0].from},${this.colorPalette[0].to})`;
+    setTimeout(()=>{
+      this.showAvatar = true
+    }, 600)
   },
   data(){
     return {
+      showAvatar: false,
       colorPalette:[
         {
           from:'#efc897',
@@ -100,7 +69,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .avatar-box {
   width: 160px;
   height: 160px;
@@ -109,21 +78,22 @@ export default {
   cursor: pointer;
   user-select: none;
   background: linear-gradient('#efc897','#ecc189');
-}
-.avatar-box:hover,
-.avatar-box:focus {
-  transform: scale(1.03) !important;
   transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.avatar-box:active {
-  transform: scale(0.98) !important;
-}
-.avatar-box.rounded {
-  border-radius: 50%;
-}
-.avatar {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  &:hover,
+  &:focus {
+    transform: scale(1.03) !important;
+    transition: transform 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  &:active {
+    transform: scale(0.98) !important;
+  }
+  &.rounded {
+    border-radius: 50%;
+  }
+  .avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 </style>

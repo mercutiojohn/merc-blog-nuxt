@@ -1,5 +1,5 @@
 <template>
-  <div class="works">
+  <div class="container">
     <GridLayout>
        <!-- height="500px" -->
       <Card
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.works {
+.container {
   width: 100%;
 }
 .icon {

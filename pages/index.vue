@@ -1,4 +1,5 @@
 <template>
+<Page>
   <div id="main-box" class="font-sans">
     <div class="home page-content">
       <Block>
@@ -8,33 +9,34 @@
         <Intro :name="name" :nickname="nickname" />
       </Block>
       <Block>
-        <!-- {{contactsContent}} -->
         <ContactsStatic :contactsData="contactsContent" />
       </Block>
       <Block>
-        <!-- <Bio :pageId="bioContentId" /> -->
         <BioStatic :content="bioContent" />
-        <NuxtLink class="hover-link" to="/about">更多</NuxtLink>
+        <MyLink to="/about">更多</MyLink>
       </Block>
     </div>
     <div class="tinted">
       <div class="page-content">
+        <Block title="Currently Working on...">
+          <Currently />
+        </Block>
         <Block title="Works">
           <WorksStatic :content="workContent" />
         </Block>
         <Block title="More">
-          <NuxtLink class="hover-link" to="/bangumis">番剧收藏</NuxtLink>
-          <NuxtLink class="hover-link" to="/albums">专辑收藏</NuxtLink>
-          <a class="hover-link" href="https://blog.mercutio.club">博客</a>
+          <More />
         </Block>
       </div>
     </div>
   </div>
+</Page>
 </template>
 
 <script>
 import Block from "@/components/utils/Block";
-
+import Page from "@/components/utils/Page";
+import MyLink from "@/components/utils/MyLink";
 export default {
   async asyncData({ $axios, $notionApi }) {
     const env = {
@@ -69,6 +71,8 @@ export default {
   },
   components: {
     Block,
+    Page,
+    MyLink
   },
   data() {
     return {
@@ -94,16 +98,27 @@ export default {
 }
 .home {
   padding-top: calc(100vh - 900px);
+  transition: padding-top .1s ease;
+}
+@media screen and (max-height: 900px) {
+  .home {
+    padding-top: calc(100vh - 800px);
+  }
+}
+@media screen and (max-height: 800px) {
+  .home {
+    padding-top: calc(100vh - 700px);
+  }
 }
 .tinted {
-  background: #eff1f1;
+  background: #f7f7f7;
   width: 100%;
 }
 .tinted::before {
   position: absolute;
   content: "";
   width: 100%;
-  background: linear-gradient(transparent, #eff1f1);
+  background: linear-gradient(transparent, #f7f7f7);
   height: 200px;
   transform: translateY(-200px);
   z-index: -2;

@@ -1,107 +1,125 @@
 <template>
-<div id="main-box" class="font-sans">
-  <div class="bangumis page-content">
-    <span class="header"><h1 class="title">番剧收藏</h1></span>
-    <div class="bangumis-list" v-if="!loading">
-      <div
-        class="bangumi-item"
-        v-for="(item, index) in bangumiData"
-        :style="'background: ' + item['主色调'] + ''"
-        :key="index"
-        v-if="item['Status'] == 'Published'"
-      >
-        <div class="left" :style="'color:' + getColor(item)">
-          <!-- :style="'background:linear-gradient(90deg, var(--sub-card-color),transparent)'" -->
-          <div class="logo">
-            <img
-              :src="nullPicUrlFallback(item['LOGO'])"
-              alt=""
-              srcset=""
-              onerror="javascript:this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';"
-            />
-          </div>
-          <span class="name">{{ item["中文名"] }}</span>
-          <span class="sub-name">{{ item["官方（日文）名"] }}</span>
-          <span class="time">
-            {{ item["档期"][0] }} - {{ item["档期"][1] }}
-          </span>
-          <!-- <span class="type">
+  <Page>
+    <div id="main-box" class="font-sans">
+      <div class="bangumis page-content">
+        <span class="header"><h1 class="title">番剧收藏</h1></span>
+        <div class="bangumis-list" v-if="!loading">
+          <div
+            class="bangumi-item"
+            v-for="(item, index) in bangumiData"
+            :style="'background: ' + item['主色调'] + ''"
+            :key="index"
+            v-if="item['Status'] == 'Published'"
+          >
+            <div class="left" :style="'color:' + getColor(item)">
+              <!-- :style="'background:linear-gradient(90deg, var(--sub-card-color),transparent)'" -->
+              <div class="logo">
+                <img
+                  :src="nullPicUrlFallback(item['LOGO'])"
+                  alt=""
+                  srcset=""
+                  onerror="javascript:this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';"
+                />
+              </div>
+              <span class="name">{{ item["中文名"] }}</span>
+              <span class="sub-name">{{ item["官方（日文）名"] }}</span>
+              <span class="time">
+                {{ item["档期"][0] }} - {{ item["档期"][1] }}
+              </span>
+              <!-- <span class="type">
             {{ item["类型"]}}
           </span> -->
-          <div class="links">
-            <a
-              class="hover-link"
-              :style="
-                'color:' + getColor(item) + ';border-color:' + getColor(item)
-              "
-              :href="item['biliSea']"
-              v-if="item['biliSea']"
-            >
-              嗶哩嗶哩
-            </a>
-            <a
-              class="hover-link"
-              :style="
-                'color:' + getColor(item) + ';border-color:' + getColor(item)
-              "
-              :href="item['bilibili']"
-              v-if="item['bilibili']"
-              >哔哩哔哩
-            </a>
-            <a
-              class="hover-link"
-              :style="
-                'color:' + getColor(item) + ';border-color:' + getColor(item)
-              "
-              :href="item['AcFun']"
-              v-if="item['AcFun']"
-              >AcFun</a
-            >
-            <a
-              class="hover-link"
-              :style="
-                'color:' + getColor(item) + ';border-color:' + getColor(item)
-              "
-              :href="item['萌娘百科']"
-              v-if="item['萌娘百科']"
-            >
-              萌娘百科
-            </a>
-            <a
-              class="hover-link"
-              :style="
-                'color:' + getColor(item) + ';border-color:' + getColor(item)
-              "
-              :href="item['Bangumi']"
-              v-if="item['Bangumi']"
-            >
-              番组计划
-            </a>
+              <div class="links">
+                <a
+                  class="hover-link"
+                  :style="
+                    'color:' +
+                    getColor(item) +
+                    ';border-color:' +
+                    getColor(item)
+                  "
+                  :href="item['biliSea']"
+                  v-if="item['biliSea']"
+                >
+                  嗶哩嗶哩
+                </a>
+                <a
+                  class="hover-link"
+                  :style="
+                    'color:' +
+                    getColor(item) +
+                    ';border-color:' +
+                    getColor(item)
+                  "
+                  :href="item['bilibili']"
+                  v-if="item['bilibili']"
+                  >哔哩哔哩
+                </a>
+                <a
+                  class="hover-link"
+                  :style="
+                    'color:' +
+                    getColor(item) +
+                    ';border-color:' +
+                    getColor(item)
+                  "
+                  :href="item['AcFun']"
+                  v-if="item['AcFun']"
+                  >AcFun</a
+                >
+                <a
+                  class="hover-link"
+                  :style="
+                    'color:' +
+                    getColor(item) +
+                    ';border-color:' +
+                    getColor(item)
+                  "
+                  :href="item['萌娘百科']"
+                  v-if="item['萌娘百科']"
+                >
+                  萌娘百科
+                </a>
+                <a
+                  class="hover-link"
+                  :style="
+                    'color:' +
+                    getColor(item) +
+                    ';border-color:' +
+                    getColor(item)
+                  "
+                  :href="item['Bangumi']"
+                  v-if="item['Bangumi']"
+                >
+                  番组计划
+                </a>
+              </div>
+            </div>
+            <div class="right">
+              <div class="main-view">
+                <img
+                  :src="nullPicUrlFallback(item['主视觉'])"
+                  alt=""
+                  srcset=""
+                  onerror="javascript:this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';"
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div class="right">
-          <div class="main-view">
-            <img
-              :src="nullPicUrlFallback(item['主视觉'])"
-              alt=""
-              srcset=""
-              onerror="javascript:this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';"
-            />
-          </div>
-        </div>
+        <loading-tip v-else />
       </div>
     </div>
-    <loading-tip v-else />
-  </div>
-  </div>
+  </Page>
 </template>
 
 <script>
+import Page from "@/components/utils/Page";
 // import ColorThief from "colorthief";
 import LoadingTip from "../components/utils/LoadingTip.vue";
 export default {
   name: "Bangumi",
-  components: { LoadingTip },
+  components: { LoadingTip, Page },
   data() {
     return {
       table_id: "ad245671d07d41d48b6e571ce2e86440",
